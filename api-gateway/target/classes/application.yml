@@ -1,0 +1,57 @@
+server:
+  port: 2000
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: userCmdApi-RegisterUser
+          uri: http://localhost:8091/api/v1/userlookup/registerNewUser
+          predicates:
+            - Path=/api/v1/userlookup/registerNewUser
+
+        - id: userCmdApi-foradmin
+          uri: http://localhost:8091/api/v1/userlookup/forAdmin
+          predicates:
+            - Path= /api/v1/userlookup/forAdmin
+
+        - id: userCmdApi-authenticate
+          uri: http://localhost:8091/authenticate
+          predicates:
+            - Path=/authenticate
+
+        - id: getallcourse
+          uri: http://localhost:8091/api/v1/userlookup/getAllCourse
+          predicates:
+            - Path=/api/v1/userlookup/getAllCourse
+
+        - id: getAllCoursebyId
+          uri: http://localhost:8091/api/v1/userlookup/getAllCoursebyId/**
+          predicates:
+             - Path=/api/v1/userlookup/getAllCoursebyId/**
+
+        - id: getAllCoursebyFilter
+          uri: http://localhost:8091/api/v1/userlookup//getAllCoursebyFilter/**
+          predicates:
+              - Path=/api/v1/userlookup/getAllCoursebyFilter/**
+
+        - id: addCourse
+          uri: http://localhost:8091/api/v1/userlookup/addCourse
+          predicates:
+              - Path=/api/v1/userlookup/addCourse
+
+        - id: addCourse
+          uri: http://localhost:8091/api/v1/userlookup/updateCourse
+          predicates:
+              - Path=/api/v1/userlookup/updateCourse
+
+        - id: addCourse
+          uri: http://localhost:8091/api/v1/userlookup/delete/**
+          predicates:
+              - Path=/api/v1/userlookup/delete/**
+
+
+
+
+
+
